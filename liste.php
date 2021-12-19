@@ -17,7 +17,6 @@
 
 //personne
 			if ($m == "personne"){
-				$requete="SELECT * FROM personne";
 				$requete = "select * from personne";
 				$result = mysqli_query($cnx,$requete);
 				if (!$result) die("requête échouée");
@@ -25,7 +24,8 @@
 					echo "<p> <ul>
 					<li> $enr->nom, $enr->prenom </li>
 					</ul> </p>
-					<form action='renseignements.php' method='get'><button type='submit' name='id' value='$enr->id'>Renseignements</button></form><br>";
+					<form action='renseignements.php' method='get'><button type='submit' name='id' value='$enr->id'>Renseignements</button></form><br>
+					<form action='del_personne.php' method='get'><button type='submit' name='id' value='$enr->id'>Supprimer</button></form><br>";
 				}
 			}
 
@@ -39,7 +39,8 @@
 				while ($enr=mysqli_fetch_object($result)){
 					echo "<p> <ul>
 					<li> $enr->marque $enr->modele $enr->immatriculation </li>
-					</ul> </p>";
+					</ul> </p>
+					<form action='del_vehicule.php' method='get'><button type='submit' name='id' value='$enr->id'>Supprimer</button></form><br>";
 				}
 			}
 
